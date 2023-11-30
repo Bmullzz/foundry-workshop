@@ -2,7 +2,7 @@
 pragma solidity ^0.8.13;
 
 import "forge-std/Test.sol";
-import 'src/HelloWorld.sol';
+import '../src/HelloWorld.sol';
 
 contract HelloWorldTest is Test {
     HelloWorld hello;
@@ -21,6 +21,8 @@ contract HelloWorldTest is Test {
         assertEq(hello.version(), 0);
         hello.updateGreeting("Hello World");
         assertEq(hello.version(), 1);
+        string memory value = hello.greet();
+        emit log(value);
         assertEq(
             hello.greet(),
             "Hello World"
